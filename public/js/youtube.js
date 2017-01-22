@@ -68,9 +68,6 @@ function clicked(e) {
 
     while (target = target.parentNode) {
         if (row(target)) {
-            // dataset id = id of track
-            console.log(target.dataset.id);
-
             if (target.className === 'active-track') {
                 if (youtubePlayer.getPlayerState() === 1) {
                     youtubePlayer.pauseVideo();
