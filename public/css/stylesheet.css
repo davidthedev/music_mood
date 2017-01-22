@@ -470,6 +470,7 @@ h1 {
 
 .btn {
     background-color: #ffffff;
+    border: none;
     border-radius: 5px;
     color: #ffffff;
     cursor: pointer;
@@ -481,14 +482,12 @@ h1 {
 
 .btn-search {
     background-color: #5d7978;
-    border: none;
     color: #ffffff;
     width: 48%;
 }
 
 .btn-randomizer {
     background-color: #d9853b;
-    border: none;
     color: #ffffff;
     display: block;
     margin-right: 0px !important;
@@ -501,11 +500,9 @@ h1 {
 
 .btn-update {
     background-color: #22a232;
-    border: 0;
 }
 
 .btn-delete {
-    border: none;
     background-color: transparent;
     cursor: pointer;
 }
