@@ -40,6 +40,10 @@ class HomeController extends Controller
         $where['mood_id'] = !empty($request->mood) ? $request->mood : '';
         $where['genre_id'] = !empty($request->genre) ? $request->genre : '';
 
+        $where = array_filter($where, function ($value) {
+            return $value != '';
+        });
+
         // generate random playlist of 10 tracks
         if ($request->search === 'randomize') {
             $records = Record::where(['user_id' => $where['user_id']])->limit(10)
@@ -52,16 +56,16 @@ class HomeController extends Controller
         // AJAX request
         if ($request->ajax()) {
             return view('home.ajax', [
-                'currentMood' => $where['mood_id'],
-                'currentGenre' => $where['genre_id'],
+                'currentMood' => isset($where['mood_id']) ? $where['mood_id'] : '',
+                'currentGenre' => isset($where['genre_id']) ? $where['genre_id'] : '',
                 'records' => $records
             ]);
         }
 
         // HTTP request
         return view('home.index', [
-            'currentMood' => $where['mood_id'],
-            'currentGenre' => $where['genre_id'],
+            'currentMood' => isset($where['mood_id']) ? $where['mood_id'] : '',
+            'currentGenre' => isset($where['genre_id']) ? $where['genre_id'] : '',
             'moods' => Mood::all(),
             'genres' => Genre::all(),
             'records' => $records
