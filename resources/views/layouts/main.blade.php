@@ -51,6 +51,14 @@
                         <h1><a href="{{ route('index') }}">Music Mood</a></h1>
                         <h3>Listen to music that feels right</h3>
                     </div>
+
+                    <div class="header-arrow">
+                        <div class="col-1-1">
+                            <a href="{{ url('#youtube-player') }}">
+                                <i class="fa fa-arrow-circle-down fa-3x"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </header>
             <div class="site-content cf">
