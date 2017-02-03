@@ -79,7 +79,7 @@
             <h2>About the project</h2>
             <p class="footer-about">MM is a playlist generator. It creates playlists
                 music / video playlists based on the selected mood / genre. You can also create
-                an free account to compile your own playlists. Enjoy!</p>
+                a free account to compile your own playlists. Enjoy!</p>
         </div>
     </footer>
     <script src="{{ asset('js/youtube.js') }}"></script>
