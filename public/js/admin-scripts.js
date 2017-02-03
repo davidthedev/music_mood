@@ -1,7 +1,7 @@
 var nav = document.getElementsByClassName('nav');
 var mobileNavChange = document.getElementById('nav-mobile');
 var addNewFormFieldBtn = document.getElementById('btn-add-field');
-var createRecordForm = document.getElementById('add-record');
+var recordForm = document.getElementById('record-form');
 var dropDownMenuBtn = document.getElementsByClassName('navbar-right');
 var dropDownMenu = dropDownMenuBtn[0].querySelector('li');
 
@@ -48,8 +48,8 @@ if (mobileNavChange != null) {
     });
 }
 
-if (createRecordForm != null) {
-    createRecordForm.addEventListener('click', handleFormBtnClick, false);
+if (recordForm != null) {
+    recordForm.addEventListener('click', handleFormBtnClick, false);
 
     function handleFormBtnClick(event) {
         var target = event.target || event.srcElement;

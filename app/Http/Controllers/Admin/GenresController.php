@@ -26,6 +26,7 @@ class GenresController extends Controller
     public function index()
     {
         $genres = Genre::orderBy('genre', 'asc')->get();
+
         return view('admin.genre.index', compact('genres'));
     }
 
@@ -47,6 +48,10 @@ class GenresController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'genre' => 'required|alpha|unique:genres,genre|max:50'
+        ]);
+
         $genre = new Genre;
         $genre->genre = $request->genre;
         $genre->save();
@@ -74,6 +79,10 @@ class GenresController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
+        $this->validate($request, [
+            'genre' => 'required|alpha|unique:genres,genre|max:50'
+        ]);
+
         $genre->update($request->all());
 
         return redirect()->route('genres.index');
@@ -88,6 +97,7 @@ class GenresController extends Controller
     public function destroy(Genre $genre)
     {
         $genre->delete();
+
         return redirect()->route('genres.index');
     }
 }

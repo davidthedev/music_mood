@@ -6,11 +6,10 @@
     Add a new record
 @endsection
 
-
 @section('board-body')
     <div class="container">
-        <form role="form" id="add-record" method="POST"
-            action="{{ route('records.store') }}">
+        <form role="form" id="record-form" method="POST"
+        action="{{ route('records.store') }}">
             {{ csrf_field() }}
             <select name="artist_id" class="form-field">
                 <option value="default">Select artist</option>
@@ -43,9 +42,9 @@
             </button>
 
             <input type="text" id="title" name="title" class="form-field"
-                placeholder="Track title"/>
+            placeholder="Track title"/>
             <input type="text" id="video_token" name="video_token" class="form-field"
-                placeholder="Track token"/>
+            placeholder="Track token"/>
             <button type="submit" class="btn btn-main">Save</button>
         </form>
     </div>

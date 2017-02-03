@@ -49,6 +49,10 @@ class ArtistsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'artist' => 'required|unique:artists,artist|max:50'
+        ]);
+
         $artist = new Artist;
         $artist->artist = $request->artist;
         $artist->save();
@@ -87,6 +91,10 @@ class ArtistsController extends Controller
      */
     public function update(Request $request, Artist $artist)
     {
+        $this->validate($request, [
+            'artist' => 'required|unique:artists,artist|max:50'
+        ]);
+
         $artist->update($request->all());
 
         return redirect()->route('artists.edit', ['artist' => $artist]);
@@ -101,6 +109,7 @@ class ArtistsController extends Controller
     public function destroy(Artist $artist)
     {
         $artist->delete();
+
         return redirect()->route('artists.index');
     }
 }

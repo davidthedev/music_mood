@@ -52,6 +52,7 @@ a {
 }
 
 button {
+    border: none;
     padding: 0px;
 }
 
@@ -68,6 +69,13 @@ button {
 h1 {
     color: #ffffff;
     margin-top: 0px;
+}
+
+label {
+    display: block;
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-left: 16px;
 }
 
 /**************************************************************************************************/
@@ -509,7 +517,7 @@ h1 {
 }
 
 .btn-update {
-    background-color: #22a232;
+    background-color: #5cb85c;
 }
 
 .btn-delete {

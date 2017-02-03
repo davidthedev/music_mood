@@ -59,7 +59,18 @@
             </div>
         </header>
         <div class="board-body">
-            <div class="table-responsive">@yield('board-body')</div>
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <div class="table-responsive">
+                @yield('board-body')
+            </div>
         </div>
     </section>
 @endsection

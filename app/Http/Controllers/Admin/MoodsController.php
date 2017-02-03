@@ -47,6 +47,10 @@ class MoodsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'mood' => 'required|alpha|unique:moods,mood|max:50'
+        ]);
+
         $mood = new Mood;
         $mood->mood = $request->mood;
         $mood->save();
@@ -85,6 +89,10 @@ class MoodsController extends Controller
      */
     public function update(Request $request, Mood $mood)
     {
+        $this->validate($request, [
+            'mood' => 'required|alpha|unique:moods,mood|max:50'
+        ]);
+
         $mood->update($request->all());
 
         return redirect()->route('moods.index');
@@ -99,6 +107,7 @@ class MoodsController extends Controller
     public function destroy(Mood $mood)
     {
         $mood->delete();
+
         return redirect()->route('moods.index');
     }
 }
