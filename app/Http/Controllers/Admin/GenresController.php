@@ -56,7 +56,7 @@ class GenresController extends Controller
         $genre->genre = $request->genre;
         $genre->save();
 
-        return redirect()->route('genres.index');
+        return redirect()->route('genres.index')->with('status', 'Genre has been saved');;
     }
 
     /**
@@ -85,7 +85,7 @@ class GenresController extends Controller
 
         $genre->update($request->all());
 
-        return redirect()->route('genres.index');
+        return redirect()->route('genres.index')->with('status', 'Record has been updated');;
     }
 
     /**

@@ -55,7 +55,7 @@ class MoodsController extends Controller
         $mood->mood = $request->mood;
         $mood->save();
 
-        return redirect()->route('moods.index');
+        return redirect()->route('moods.index')->with('status', 'Mood has been saved');;
     }
 
     /**
@@ -95,7 +95,7 @@ class MoodsController extends Controller
 
         $mood->update($request->all());
 
-        return redirect()->route('moods.index');
+        return redirect()->route('moods.index')->with('status', 'Mood has been updated');;
     }
 
     /**

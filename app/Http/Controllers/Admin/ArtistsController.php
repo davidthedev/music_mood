@@ -57,7 +57,7 @@ class ArtistsController extends Controller
         $artist->artist = $request->artist;
         $artist->save();
 
-        return redirect()->route('artists.index');
+        return redirect()->route('artists.index')->with('status', 'Artist has been saved');;
     }
 
     /**
@@ -97,7 +97,7 @@ class ArtistsController extends Controller
 
         $artist->update($request->all());
 
-        return redirect()->route('artists.edit', ['artist' => $artist]);
+        return redirect()->route('artists.edit', ['artist' => $artist])->with('status', 'Artist has been updated');;
     }
 
     /**

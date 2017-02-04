@@ -60,12 +60,14 @@
         </header>
         <div class="board-body">
             @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">
+                        {{ $error }}
+                    </div>
+                @endforeach
+            @elseif (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
             @endif
             <div class="table-responsive">

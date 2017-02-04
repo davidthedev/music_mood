@@ -74,7 +74,7 @@ class RecordsController extends Controller
         $record->user_id = auth()->id();
         $record->save();
 
-        return redirect()->route('records.index');
+        return redirect()->route('records.index')->with('status', 'Record has been saved');
     }
 
     /**
@@ -130,7 +130,7 @@ class RecordsController extends Controller
         $record->video_token = $this->processLink($request->video_token);
         $record->save();
 
-        return redirect()->route('records.index');
+        return redirect()->route('records.index')->with('status', 'Record has been updated');;
     }
 
     /**

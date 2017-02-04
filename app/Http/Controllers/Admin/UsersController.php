@@ -45,7 +45,7 @@ class UsersController extends Controller
                 'email' => $request->email
             ]);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('status', 'Details have been saved');;
     }
 
     /**
@@ -74,6 +74,6 @@ class UsersController extends Controller
             $user->save();
         }
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('status', 'Password has been updated');;
     }
 }
